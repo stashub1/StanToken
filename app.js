@@ -18,9 +18,9 @@ async function init() {
 	console.log("Balance : "+ balance);
 	console.log("admin address: " + await tokenContract.methods.admin().call());
 
-	let to = "0xD8Ce37FA3A1A61623705dac5dCb708Bb5eb9a125";
-	let rec = await tokenContract.methods.transfer(to, 1)
-		.send({from : "0xF713789Ae84D152A130Df79231d1223637F1f417"});
+	let to = "0x8dE99Ebc42df130AE87C263E724717D9774Ff168";
+	let rec = await tokenContract.methods.transfer(to, 2)
+		.send({from : "0x8dC26238CF9726605200b29fB1DFAcc31EE6f501"});
 
 	console.log("Receipt: ", rec);
 	console.log("Events: ", rec.events.Transfer.returnValues);

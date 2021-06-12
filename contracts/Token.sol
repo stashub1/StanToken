@@ -9,15 +9,19 @@ contract Token {
 
 	address public admin;
 	uint public maxTotalSupply;
+	string public name;
+	string public symbol;
 	mapping(address => uint) public balances;
 
 	event Transfer(address indexed from, address indexed to, uint256 amount);
 
-	constructor(string memory name, 
-				string memory symbol,
+	constructor(string memory _name, 
+				string memory _symbol,
 				uint _initialSupply) 
 				 public {
 
+		name = _name;
+		symbol = _symbol;
 		admin = msg.sender;
 		maxTotalSupply = _initialSupply;
 		balances[msg.sender] = maxTotalSupply; 
@@ -25,11 +29,10 @@ contract Token {
 
     function transfer(address recipient, uint amount) 
      public returns(bool) {
-     	require(balanceOf(admin) >= amount);
-		balances[admin] = balances[admin] - amount;
+     	require(balanceOf(msg.sender) >= amount);
+		balances[msg.sender] = balances[msg.sender] - amount;
 		balances[recipient] = balances[recipient] + amount;  
 		emit Transfer(admin, recipient, amount);
-
 		return true;
 	}
 
