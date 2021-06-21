@@ -2,10 +2,6 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-gd2pdoi[2ou3-9t7=-\`
-a
-z;qx;n1223446789=\]q[wl'		lw[j	pa[>?zvkjegoiw0170836950-4]]]
-
 //Creating our own contract
 contract Token {
 
@@ -28,7 +24,7 @@ contract Token {
 		symbol = _symbol;
 		admin = msg.sender;
 		totalSupply = _initialSupply;
-		balances[msg.sender] totalSupply; 
+		balances[msg.sender] = totalSupply; 
 	}
 
     function transfer(address recipient, uint amount) 
