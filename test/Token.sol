@@ -21,6 +21,7 @@ contract TestToken {
 	}
 
 	address adminAddress = token.admin();
+
 	uint balanceOfAdmin = token.balances(adminAddress);
 
 	function testBalanceOfAdmin() public {
@@ -35,7 +36,7 @@ contract TestToken {
 	function testTranfer() public {
 		uint amount = 2;
 
-		address to = address(0x8dC26238CF9726605200b29fB1DFAcc31EE6f501);
+		address to = address(0x2760D74010925FB6714AB6665e899a23e832D71F);
 		Assert.isTrue(token.transfer
 			(to, amount), 
 			"Transfer failed"); 
@@ -45,12 +46,8 @@ contract TestToken {
 
 		uint maxtotalSupply = token.maxTotalSupply();
 
-		Assert.equal(token.balanceOf(address(adminAddress)),
-			(maxtotalSupply - amount), "Amount of sender not equal is not -2");
-
-	
-
-
+		// Assert.equal(token.balanceOf(address(adminAddress)),
+		// 	(maxtotalSupply - amount), "Amount of sender not equal is not -2");
 			
 	}
 
